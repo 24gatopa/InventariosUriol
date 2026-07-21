@@ -21,7 +21,7 @@ import {
 import PrimaryButton from "../../components/ui/PrimaryButton";
 import { db } from "../../config/firebase";
 
-export default function DebtorsScreen() {
+export default function DebtorsScreen({ navigation }) {
   const [deudores, setDeudores] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [nombre, setNombre] = useState("");
@@ -82,6 +82,9 @@ export default function DebtorsScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Ionicons name="arrow-back" size={24} color="#111827" />
+        </TouchableOpacity>
         <Text style={styles.title}>Deudores</Text>
         <TouchableOpacity
           style={styles.addButton}
